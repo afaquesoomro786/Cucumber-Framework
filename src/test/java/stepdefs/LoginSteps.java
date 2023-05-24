@@ -4,9 +4,6 @@ import com.source.core.TestContext;
 import com.source.data.UserData;
 import com.source.pages.HomeScreen;
 import com.source.pages.LoginScreen;
-import com.source.utils.Utility;
-import io.cucumber.datatable.DataTable;
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -54,6 +51,6 @@ public class LoginSteps {
 
     @Then("^I should be logged in successfully$")
     public void iShouldBeLoggedInSuccessfully() {
-       Assert.assertTrue(homeScreen.productLabelIsDisplayed());
+        Assert.assertTrue(homeScreen.productLabelIsDisplayed());
     }
 }

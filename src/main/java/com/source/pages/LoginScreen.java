@@ -25,10 +25,6 @@ public class LoginScreen extends AbstractScreen {
         super(driver);
     }
 
-    public void failedCase() {
-        driver.findElement(By.id("sdsd"));
-    }
-
     public boolean performLogin(String username, String password) {
         if (enterUsername(username)) {
             enterPassword(password);
