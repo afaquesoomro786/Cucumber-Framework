@@ -2,8 +2,8 @@ Feature: Login Screen
 
   @source
   Scenario: Login using valid credentials
-    Given I am on Login page
-    Then  I login with standard user
+    Given I am on the Login page
+    When  I login with standard user
     Then I should be logged in successfully
 
   Scenario Outline: Login using different credentials

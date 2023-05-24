@@ -1,8 +1,10 @@
 package com.source.utils;
 
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
@@ -23,6 +25,24 @@ public class Utility {
         }
     }
 
+    public static boolean selectDropDownByVisibleText(WebElement webElement, String text) {
+        boolean status = false;
+        try {
+            Select select = new Select(webElement);
+            WebElement option = select.getFirstSelectedOption();
+            if (option.getText().equalsIgnoreCase(text)) {
+                status = true; // Already selected the desired option
+            } else {
+                select.selectByVisibleText(text);
+                status = true;
+            }
+        } catch (NoSuchElementException e) {
+            System.out.println("Element not found: " + webElement + ". Unable to select drop-down value.");
+            e.printStackTrace();
+        }
+        return status;
+    }
+
     public static boolean waitForWebElement(WebDriver driver, WebElement element, int timeOuts) {
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeOuts));
@@ -33,6 +53,7 @@ public class Utility {
             return false;
         }
     }
+
     public static Properties readPropertiesFile(String filepath) {
         Properties prop = new Properties();
         InputStream input = null;
