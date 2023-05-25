@@ -49,7 +49,7 @@ public class LoginSteps {
         Assert.assertTrue(loginScreen.performLogin(username, password));
     }
 
-    @Then("^I should be logged in successfully$")
+    @Then("^I am on the Swag Labs homepage$")
     public void iShouldBeLoggedInSuccessfully() {
         Assert.assertTrue(homeScreen.productLabelIsDisplayed());
     }

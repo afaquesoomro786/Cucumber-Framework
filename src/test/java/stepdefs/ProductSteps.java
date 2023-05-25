@@ -22,8 +22,9 @@ public class ProductSteps {
 
     }
 
-    @When("I filter products by {string}")
+    @When("I select the {string} filter")
     public void filterProduct(String filter) {
+        System.out.println(filter);
         Assert.assertTrue(homeScreen.selectFilter(filter));
     }
 
