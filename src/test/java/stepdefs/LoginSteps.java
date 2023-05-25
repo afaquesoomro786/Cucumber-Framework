@@ -39,9 +39,10 @@ public class LoginSteps {
     @Given("I login with {} user")
     public void loginUser(String userType) {
         Map<String, String> user = UserData.getLoginUserCredentails(userType);
-        if (userType.equalsIgnoreCase("standard")) {
+        //if (userType.equalsIgnoreCase("standard")) {
+            System.out.println(user.get("username"));
             Assert.assertTrue(loginScreen.performLogin(user.get("username"), user.get("password")));
-        }
+        //}
     }
 
     @When("^I login user with different \"(.*)\" and \"(.*)\"$")

@@ -16,9 +16,9 @@ Feature: Product Filtering and Cart Functionality
 
   Scenario: Sort products by Name A to Z
     Given I am on the Login page
-    When  I login with standard user
+    When  I login with performanceUser user
     Then I am on the Swag Labs homepage
-    When I select the "(Name A to Z)" filter
+    When I select the "Name (A to Z)" filter
     Then I should see the products sorted by name in ascending order
 
   Scenario: Sort products by Name Z to A

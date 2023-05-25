@@ -20,6 +20,9 @@ public class HomeScreen extends AbstractScreen {
     @FindBy(className = "inventory_item_price")
     List<WebElement> productPriceList;
 
+    @FindBy(className = "inventory_item_name")
+    List<WebElement> productNameList;
+
     public HomeScreen(WebDriver driver) {
         super(driver);
     }
@@ -65,6 +68,47 @@ public class HomeScreen extends AbstractScreen {
             }
         }
         return true;
+    }
+
+    public static boolean isSortedByNameAscending(List<String> values) {
+
+        for (int i = 0; i < values.size() - 1; i++) {
+            System.out.println(values.get(i).compareToIgnoreCase(values.get(i + 1)));
+            if (values.get(i).compareToIgnoreCase(values.get(i + 1)) > 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static boolean isSortedByNameDescending(List<String> values) {
+        for (int i = 0; i < values.size() - 1; i++) {
+            System.out.println(values.get(i).compareToIgnoreCase(values.get(i + 1)));
+            if (values.get(i).compareToIgnoreCase(values.get(i + 1)) < 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean areProductsSortedByNameAscending() {
+        List<String> productsName = getProductsName();
+        return isSortedByNameAscending(productsName);
+    }
+
+    public boolean areProductsSortedByNameDescending() {
+        List<String> productsName = getProductsName();
+        return isSortedByNameDescending(productsName);
+    }
+
+    private List<String> getProductsName() {
+        List<String> productsName = new ArrayList<>();
+        for (WebElement productElement : productNameList) {
+            String productName = productElement.getText();
+            System.out.println(productName);
+            productsName.add(productName);
+        }
+        return productsName;
     }
 
     public boolean areProductsSortedByPriceAscending() {

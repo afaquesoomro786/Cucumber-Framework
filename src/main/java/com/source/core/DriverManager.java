@@ -44,7 +44,6 @@ public class DriverManager {
 
     public WebDriver launchDriver(String scenarioName, ArrayList<String> scenarioTags) {
         if (driver == null) {
-            System.out.println("driver is null");
             setBuildParams();
             driver = runTestsLocally(scenarioName);
         }

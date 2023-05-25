@@ -37,4 +37,14 @@ public class ProductSteps {
     public void verifyProductsSortedInDescendingOrder() {
         Assert.assertTrue(homeScreen.areProductsSortedByPriceDescending());
     }
+
+    @Then("I should see the products sorted by name in ascending order")
+    public void verifyProductsSortedByNameInAscendingOrder() {
+        Assert.assertTrue(homeScreen.areProductsSortedByNameAscending());
+    }
+
+    @Then("I should see the products sorted by name in descending order")
+    public void verifyProductsSortedByNameInAscendingDescending() {
+        Assert.assertTrue(homeScreen.areProductsSortedByNameDescending());
+    }
 }
