@@ -1,4 +1,4 @@
-package stepdefs;
+package stepDefination;
 
 import com.source.core.TestContext;
 import com.source.data.UserData;

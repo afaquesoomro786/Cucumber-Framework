@@ -1,10 +1,10 @@
 Feature: Login Screen
 
-  @source
   Scenario: Login using valid credentials
     Given I am on the Login page
     When  I login with standard user
     Then I am on the Swag Labs homepage
+
 
   Scenario Outline: Login using different credentials
     Given I am on the Login page

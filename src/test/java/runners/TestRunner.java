@@ -3,18 +3,17 @@ package runners;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
 
+@Test
 @CucumberOptions(
-        plugin = {"pretty",
-                "html:target/cucumber-reports/cucumber.html",
-                "json:target/cucumber-reports/cucumber.json",
-                "junit:target/cucumber-reports/cucumber-junit.xml",
-                "rerun:rerun.txt"
-        },
-        tags = "@source",
+        plugin = {"pretty"
+                        },
+        tags = "",
         features = {"src/test/resources/features"},
-        glue = {"stepdefs"}
-)
+        glue = {"stepDefination","com.source.core"}
+        )
+
 public class TestRunner extends AbstractTestNGCucumberTests {
         @Override
         @DataProvider(parallel = false)
